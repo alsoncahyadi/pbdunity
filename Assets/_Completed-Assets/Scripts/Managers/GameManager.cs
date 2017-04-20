@@ -94,7 +94,7 @@ namespace Complete
             yield return StartCoroutine (RoundEnding());
 
             // This code is not run until 'RoundEnding' has finished.  At which point, check if a game winner has been found.
-            // if it has already game over, stuck the screem
+            // if it is not game over
             if (m_Tanks [0].m_Wins != -1) {
                 if (m_GameWinner != null)
                 {
@@ -107,7 +107,7 @@ namespace Complete
                     // Note that this coroutine doesn't yield.  This means that the current version of the GameLoop will end.
                     StartCoroutine (GameLoop ());
                 }
-            }
+            } else SceneManager.LoadScene (0); //load the 0th scene if game over
         }
 
 
